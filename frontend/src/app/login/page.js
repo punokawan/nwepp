@@ -25,8 +25,8 @@ export default function LoginPage() {
     };
 
     return (
-        <div style={styles.page}>
-            <div style={styles.left}>
+        <div className="auth-page">
+            <div className="auth-left" style={{ background: 'linear-gradient(135deg, var(--primary-600), var(--primary-800))' }}>
                 <div style={styles.leftContent}>
                     <Link href="/" style={styles.brand}>
                         <span style={{ fontSize: '2rem' }}>🥗</span>
@@ -44,7 +44,7 @@ export default function LoginPage() {
                     </div>
                 </div>
             </div>
-            <div style={styles.right}>
+            <div className="auth-right">
                 <form onSubmit={handleSubmit} style={styles.form}>
                     <h1 style={styles.title}>Masuk</h1>
                     <p style={styles.subtitle}>Masuk ke akun NWEPP Anda</p>
@@ -78,12 +78,6 @@ export default function LoginPage() {
 }
 
 const styles = {
-    page: { display: 'flex', minHeight: '100vh' },
-    left: {
-        flex: 1, background: 'linear-gradient(135deg, var(--primary-600), var(--primary-800))',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        padding: 48, position: 'relative', overflow: 'hidden',
-    },
     leftContent: { maxWidth: 420, position: 'relative', zIndex: 1 },
     brand: { display: 'flex', alignItems: 'center', gap: 10, marginBottom: 32, textDecoration: 'none' },
     brandText: { fontSize: '1.3rem', fontWeight: 800, color: 'white' },
@@ -93,10 +87,6 @@ const styles = {
     featureItem: {
         background: 'rgba(255,255,255,0.1)', padding: '10px 16px', borderRadius: 'var(--radius-md)',
         color: 'white', fontSize: '0.9rem', fontWeight: 500,
-    },
-    right: {
-        flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
-        padding: 48, background: 'var(--bg-primary)',
     },
     form: { width: '100%', maxWidth: 400 },
     title: { fontSize: '1.6rem', fontWeight: 800, marginBottom: 4 },

@@ -146,7 +146,7 @@ const styles = {
   page: { minHeight: '100vh' },
   hero: {
     background: 'linear-gradient(135deg, #f0fffe 0%, #e8f5e9 50%, #fff8e1 100%)',
-    padding: '0 24px 60px',
+    padding: '0 5% 60px', /* percentage based padding for responsiveness */
     position: 'relative',
     overflow: 'hidden',
   },
@@ -161,7 +161,7 @@ const styles = {
     WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
   },
   heroContent: {
-    maxWidth: 1200, margin: '0 auto', paddingTop: 48,
+    maxWidth: 1200, margin: '0 auto', paddingTop: 'max(4vh, 24px)', /* dynamic padding */
     textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center',
   },
   heroBadge: {
@@ -170,7 +170,8 @@ const styles = {
     color: 'var(--primary-700)', marginBottom: 24,
   },
   heroTitle: {
-    fontSize: 'clamp(2rem, 5vw, 3.2rem)', fontWeight: 800,
+    fontSize: 'clamp(2rem, 8vw, 3.5rem)', /* fluid typography */
+    fontWeight: 800,
     lineHeight: 1.15, marginBottom: 20, color: 'var(--neutral-900)',
   },
   heroHighlight: {
@@ -178,7 +179,7 @@ const styles = {
     WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
   },
   heroSub: {
-    fontSize: '1.1rem', color: 'var(--text-secondary)',
+    fontSize: 'clamp(1rem, 3vw, 1.15rem)', color: 'var(--text-secondary)',
     maxWidth: 580, marginBottom: 32, lineHeight: 1.7,
   },
   statsRow: {

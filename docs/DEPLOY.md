@@ -26,8 +26,9 @@ sudo usermod -aG docker $USER
 
 ## 📥 Langkah 2: Setup Environment & Konfigurasi
 
-1. Clone source code NWEPP ke server:
+1. Clone source code NWEPP ke server (direkomendasikan di home directory):
    ```bash
+   cd ~
    git clone <URL_REPO_NWEPP>
    cd nwepp
    ```
@@ -57,8 +58,25 @@ sudo usermod -aG docker $USER
 
 ## 🚀 Langkah 3: Build & Jalankan Aplikasi
 
-**Pastikan Aturan Firewall Anda:**  
-Buka port `3000` (Frontend), `8081` (Backend API), dan `5432` (jika ingin debug database) di panel sekuriti Sumopod.
+**Pastikan Aturan Firewall (Port) Anda Terbuka:**  
+Di sisi OS server Linux (Ubuntu/Debian) yang biasa dipakai Sumopod, Anda bisa menggunakan UFW untuk mengecek dan membuka port:
+
+```bash
+# Cek status firewall saat ini
+sudo ufw status
+
+# Buka akses port yang dibutuhkan aplikasi
+sudo ufw allow 3000/tcp   # Frontend UI
+sudo ufw allow 8081/tcp   # Backend API
+sudo ufw allow 5432/tcp   # Database DB (Opsional, jika mau remote query)
+sudo ufw allow 22/tcp     # Memastikan port SSH tetap terbuka agar tidak terlock!
+
+# Reload atau hidupkan firewall
+sudo ufw enable
+sudo ufw reload
+```
+
+*(Catatan: Selain UFW di Linux, pastikan juga di Dashboard/Panel Sumopod jika ada menu "Security Groups" atau "Firewall", port-port di atas (3000, 8081) juga statusnya sudah "Allow" atau "Inbound Rules" nya dibuka).*
 
 Jalankan perintah ini untuk mem-build image & menjalankan containers:
 ```bash

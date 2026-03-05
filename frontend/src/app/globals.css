@@ -542,3 +542,62 @@ tr:hover td {
     display: none !important;
   }
 }
+
+/* ===================== AUTH PAGES RESPONSIVENESS ===================== */
+.auth-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+.auth-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  background: var(--bg-primary);
+}
+
+@media (max-width: 900px) {
+  .auth-page {
+    flex-direction: column;
+  }
+
+  .auth-left {
+    flex: none;
+    padding: 32px 24px;
+    min-height: 30vh;
+    order: 1;
+    /* Keep visual at top, but usually users want form first. Let's hide left on very small screens or make it a small banner */
+  }
+
+  .auth-right {
+    flex: 1;
+    padding: 32px 24px;
+    order: 2;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .auth-left {
+    display: none;
+    /* Hide heavy promotional content on small mobile to focus on the form */
+  }
+
+  .auth-right {
+    padding: 24px 16px;
+    justify-content: center;
+    align-items: center;
+  }
+}

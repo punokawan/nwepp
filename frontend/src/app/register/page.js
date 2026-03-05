@@ -37,8 +37,8 @@ export default function RegisterPage() {
     const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
 
     return (
-        <div style={styles.page}>
-            <div style={styles.left}>
+        <div className="auth-page">
+            <div className="auth-left" style={{ background: 'linear-gradient(135deg, var(--accent-600), var(--primary-700))' }}>
                 <div style={styles.leftContent}>
                     <Link href="/" style={styles.brand}>
                         <span style={{ fontSize: '2rem' }}>🥗</span>
@@ -61,7 +61,7 @@ export default function RegisterPage() {
                     </div>
                 </div>
             </div>
-            <div style={styles.right}>
+            <div className="auth-right">
                 <form onSubmit={handleSubmit} style={styles.form}>
                     <h1 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: 4 }}>Daftar</h1>
                     <p style={{ color: 'var(--text-secondary)', marginBottom: 24, fontSize: '0.95rem' }}>Buat akun NWEPP baru</p>
@@ -115,11 +115,6 @@ export default function RegisterPage() {
 }
 
 const styles = {
-    page: { display: 'flex', minHeight: '100vh' },
-    left: {
-        flex: 1, background: 'linear-gradient(135deg, var(--accent-600), var(--primary-700))',
-        display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 48,
-    },
     leftContent: { maxWidth: 400 },
     brand: { display: 'flex', alignItems: 'center', gap: 10, marginBottom: 32, textDecoration: 'none' },
     steps: { marginTop: 32, display: 'flex', flexDirection: 'column', gap: 16 },
@@ -129,10 +124,6 @@ const styles = {
     },
     stepDot: {
         width: 10, height: 10, borderRadius: '50%', background: 'white', flexShrink: 0,
-    },
-    right: {
-        flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
-        padding: 48, background: 'var(--bg-primary)',
     },
     form: { width: '100%', maxWidth: 400 },
     error: {
